@@ -41,7 +41,7 @@ function App() {
       <div className="map-wrapper">
         <MyMapComponent
           isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxiRA3s53Q1lfbtquDAoF22qJ10WNFqlI&callback=initMap"
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&callback=initMap`}
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}
