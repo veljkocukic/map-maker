@@ -15,6 +15,9 @@ export const MyMapComponent = withScriptjs(withGoogleMap((props) => {
 
     const handleDragEnd = () => {
         localStorage.setItem("center", JSON.stringify({ lat: gmap.current.getCenter().lat(), lng: gmap.current.getCenter().lng() }))
+
+    }
+    const handleZoomChange = () => {
         localStorage.setItem("zoom", gmap.current.getZoom())
     }
 
@@ -42,6 +45,7 @@ export const MyMapComponent = withScriptjs(withGoogleMap((props) => {
         defaultCenter={JSON.parse(localStorage.getItem("center")) || { lat: 25, lng: 0 }}
         onClick={handleClick}
         onDragEnd={handleDragEnd}
+        onZoomChanged={handleZoomChange}
         ref={gmap}
     >
         {markers.map((item, key) => {
