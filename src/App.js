@@ -15,7 +15,7 @@ function App() {
     let submitted = txtarea.current.value.replace(" ", "").split(/\r?\n/)
     let submittedConverted = submitted.map((item, key) => {
       let splitted = item.split(",")
-      return { lat: Number(splitted[0]), lng: Number(splitted[1]), color: splitted[2], colorCount: 0 }
+      return { lat: Number(splitted[0]), lng: Number(splitted[1]), color: splitted[2], colorCount: -1 }
     })
     setMarkers(prev => [...prev, ...submittedConverted])
     txtarea.current.value = ""

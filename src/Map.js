@@ -8,7 +8,7 @@ export const MyMapComponent = withScriptjs(withGoogleMap((props) => {
     const handleClick = (e) => {
         const lat = parseFloat(e.latLng.lat());
         const lng = parseFloat(e.latLng.lng());
-        const colorCount = 0
+        const colorCount = -1
         setMarkers(prev => [...prev, { lat, lng, colorCount }])
         localStorage.setItem("markers", [...markers])
     }
@@ -29,8 +29,7 @@ export const MyMapComponent = withScriptjs(withGoogleMap((props) => {
             if (item.lat === lat && item.lng === lng) {
                 if (colorCount < 5) {
                     return { ...item, colorCount: ++colorCount }
-                } else { return { ...item, colorCount: 0 } }
-
+                } else { return { ...item, colorCount: -1 } }
             }
             return item
         }))
