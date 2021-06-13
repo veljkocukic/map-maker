@@ -15,7 +15,7 @@ function App() {
     let submitted = txtarea.current.value.replace(" ", "").split(/\r?\n/)
     let submittedConverted = submitted.map((item, key) => {
       let splitted = item.split(",")
-      return { lat: Number(splitted[0]), lng: Number(splitted[1]), color: splitted[2] }
+      return { lat: Number(splitted[0]), lng: Number(splitted[1]), color: splitted[2], colorCount: 0 }
     })
     setMarkers(prev => [...prev, ...submittedConverted])
     txtarea.current.value = ""
@@ -39,6 +39,7 @@ function App() {
   return (
     <div className="App">
       <div className="map-wrapper">
+
         <MyMapComponent
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&callback=initMap`}

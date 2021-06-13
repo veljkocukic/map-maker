@@ -4,8 +4,8 @@ export let DataContext = createContext();
 
 export let DataProvider = (props) => {
 
+
     const colors = ["green", "blue", "red", "yellow", "purple", "pink"]
-    let [timesClicked, setTimesClicked] = useState(0)
     const [markers, setMarkers] = useState(JSON.parse(localStorage.getItem("markers")) || [])
     useEffect(() => {
         localStorage.setItem("markers", JSON.stringify(markers))
@@ -15,7 +15,7 @@ export let DataProvider = (props) => {
 
     return (
         <DataContext.Provider
-            value={{ markers, setMarkers, colors, timesClicked, setTimesClicked }}
+            value={{ markers, setMarkers, colors }}
         >
             {props.children}
         </DataContext.Provider>
