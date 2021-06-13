@@ -10,8 +10,7 @@ function App() {
   let { setMarkers } = useContext(DataContext)
   const buttonRef = useRef(null)
   const txtarea = useRef(null)
-
-  function handleButtonClick() {
+  const handleButtonClick = () => {
     let submitted = txtarea.current.value.replace(" ", "").split(/\r?\n/)
     let submittedConverted = submitted.map((item, key) => {
       let splitted = item.split(",")
@@ -39,7 +38,6 @@ function App() {
   return (
     <div className="App">
       <div className="map-wrapper">
-
         <MyMapComponent
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API}&callback=initMap`}
