@@ -25,21 +25,15 @@ export const MyMapComponent = withScriptjs(withGoogleMap((props) => {
     }
 
     const handleMarkerClick = (lat, lng, colorCount) => {
-        if (colorCount < 5) {
-            setMarkers(prev => prev.map(item => {
-                if (item.lat === lat && item.lng === lng) {
+        setMarkers(prev => prev.map(item => {
+            if (item.lat === lat && item.lng === lng) {
+                if (colorCount < 5) {
                     return { ...item, colorCount: ++colorCount }
-                }
-                return item
-            }))
-        } else {
-            setMarkers(prev => prev.map(item => {
-                if (item.lat === lat && item.lng === lng) {
-                    return { ...item, colorCount: 0 }
-                }
-                return item
-            }))
-        }
+                } else { return { ...item, colorCount: 0 } }
+
+            }
+            return item
+        }))
 
         setMarkers(prev => prev.map(item => {
             if (item.lng === lng && item.lat === lat) {
